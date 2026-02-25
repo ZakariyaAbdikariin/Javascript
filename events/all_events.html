@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Events Demo - Using document</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    #box { width: 100px; height: 100px; background: lightblue; margin: 10px 0; }
+    #dropZone { width: 200px; height: 100px; border: 2px dashed gray; margin-top: 10px; padding: 10px; }
+    li { cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<h2>JavaScript Events Demo</h2>
+
+<!-- Mouse Events -->
+<button id="clickBtn">Click Me</button>
+
+<!-- Keyboard Event -->
+<input type="text" id="keyInput" placeholder="Type something..." />
+
+<!-- Form Event -->
+<form id="demoForm">
+  <input type="text" placeholder="Enter name" required />
+  <button type="submit">Submit</button>
+</form>
+
+<!-- Drag & Drop -->
+<div id="box" draggable="true">Drag me</div>
+<div id="dropZone">Drop here</div>
+
+<!-- Event Delegation -->
+<ul id="list">
+  <li>Item A</li>
+  <li>Item B</li>
+  <li>Item C</li>
+</ul>
+
+<script>
+
+/* =========================
+   MOUSE EVENTS
+========================= */
+
+function handleClick() {
+  alert("Button Clicked!");
+}
+
+function handleMouseOver() {
+  console.log("Mouse is over the button");
+  document.getElementById("clickBtn").style.backgroundColor = "lightgreen";
+}
+
+function handleMouseOut() {
+  console.log("Mouse left the button");
+  document.getElementById("clickBtn").style.backgroundColor = "lightblue";
+}
+
+document.getElementById("clickBtn")
+  .addEventListener("click", handleClick);
+
+document.getElementById("clickBtn")
+  .addEventListener("mouseover", handleMouseOver);
+
+document.getElementById("clickBtn")
+  .addEventListener("mouseout", handleMouseOut);
+
+
+/* =========================
+   KEYBOARD EVENT
+========================= */
+
+function handleKeyDown(event) {
+  console.log("Key pressed:", event.key);
+}
+
+document.getElementById("keyInput")
+  .addEventListener("keydown", handleKeyDown);
+
+
+/* =========================
+   FORM EVENT
+========================= */
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  alert("Form Submitted Successfully!");
+}
+
+document.getElementById("demoForm")
+  .addEventListener("submit", handleFormSubmit);
+
+
+/* =========================
+   WINDOW EVENT
+========================= */
+
+function handleResize() {
+  console.log("Window resized to:", window.innerWidth);
+}
+
+window.addEventListener("resize", handleResize);
+
+
+/* =========================
+   DRAG AND DROP EVENTS
+========================= */
+
+function handleDragStart(event) {
+  event.dataTransfer.setData("text/plain", "Box Dragged");
+}
+
+function handleDragOver(event) {
+  event.preventDefault();
+}
+
+function handleDrop(event) {
+  event.preventDefault();
+  document.getElementById("dropZone").textContent = "Dropped!";
+}
+
+document.getElementById("box")
+  .addEventListener("dragstart", handleDragStart);
+
+document.getElementById("dropZone")
+  .addEventListener("dragover", handleDragOver);
+
+document.getElementById("dropZone")
+  .addEventListener("drop", handleDrop);
+
+
+/* =========================
+   EVENT DELEGATION
+========================= */
+
+function handleListClick(event) {
+  if (event.target.tagName === "LI") {
+    alert("You clicked " + event.target.textContent);
+  }
+}
+
+document.getElementById("list")
+  .addEventListener("click", handleListClick);
+
+
+/* =========================
+   CUSTOM EVENT
+========================= */
+
+function handleCustomEvent(event) {
+  console.log(event.detail.message);
+}
+
+document.addEventListener("greet", handleCustomEvent);
+
+function dispatchCustomEvent() {
+  const customEvent = new CustomEvent("greet", {
+    detail: { message: "Hello from Custom Event!" }
+  });
+
+  document.dispatchEvent(customEvent);
+}
+
+setTimeout(dispatchCustomEvent, 3000);
+
+</script>
+
+</body>
+</html>

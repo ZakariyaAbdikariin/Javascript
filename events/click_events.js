@@ -1,0 +1,5 @@
+
+function replyToTheSalaam(){
+            alert("WaAleikumusalaam")
+        }
+
