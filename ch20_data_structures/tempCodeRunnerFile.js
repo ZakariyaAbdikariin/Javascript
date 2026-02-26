@@ -1,0 +1,1 @@
+console.log("Contains Fatima?", people.has("Fatima")); // true
