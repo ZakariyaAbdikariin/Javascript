@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LocalStorage Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+            width: 200px;
+        }
+
+        .buttons {
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 8px 12px;
+            font-size: 14px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>LocalStorage Demo</h2>
+
+        <input type="text" id="username" placeholder="Enter your name">
+        <div class="buttons">
+            <button id="saveBtn">Save</button>
+            <button id="clearBtn">Clear</button>
+        </div>
+
+        <p id="message"></p>
+    </div>
+
+    <script src="sessionStorage.js"></script>
+</body>
+</html>

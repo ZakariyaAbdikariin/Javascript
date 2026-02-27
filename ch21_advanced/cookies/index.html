@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cookie Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+            width: 200px;
+        }
+
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Cookie Demo</h2>
+
+        <input type="text" id="username" placeholder="Enter your name">
+        <br><br>
+
+        <button id="saveBtn">Save Cookie</button>
+        <button id="clearBtn">Clear Cookie</button>
+
+        <p id="message"></p>
+    </div>
+
+    <script src="cookies.js"></script>
+</body>
+</html>
